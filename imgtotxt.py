@@ -1,11 +1,19 @@
 from PIL import Image
-import pytesseract
+import requests
 
-# Open the image file
-img = Image.open('image.png')
+# Prompt the user to enter the image URL
+image_url = input("Please enter the URL of the image: ")
 
-# Convert the image to text
-text = pytesseract.image_to_string(img)
+# Download the image from the URL
+response = requests.get(image_url)
+image = Image.open(BytesIO(response.content))
 
-# Print the text
-print(text)
+# Convert the image to text using OCR (Optical Character Recognition)
+text = pytesseract.image_to_string(image)
+
+# Save the text to a file
+with open("output.txt", "w") as file:
+    file.write(text)
+
+print("Image converted to text and saved as 'output.txt'.")
+
