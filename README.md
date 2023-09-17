@@ -6,7 +6,7 @@ This app will receive text-based Images, scan Images, and convert them to text
 
 Requirements
 1. HTML
-2. Install Python
+2. Download and Install Python
 3. PIP install pillow pytesseract 
 4. PIP Install requests
 
